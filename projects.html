@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdelrahman Osama — Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.75rem;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      transition: border-color .2s, transform .2s, background .2s;
+    }
+    .project-card:hover {
+      border-color: var(--accent2);
+      transform: translateY(-3px);
+      background: var(--surface-hover);
+    }
+    .project-card.featured { border-color: var(--accent); }
+    .project-card.featured:hover { border-color: var(--accent); }
+    .project-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 1.1rem;
+    }
+    .project-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .icon-btn {
+      width: 36px; height: 36px; border-radius: 10px;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted);
+      transition: all .2s;
+      flex-shrink: 0;
+    }
+    .icon-btn:hover { border-color: var(--accent); color: var(--accent); transform: scale(1.05); }
+    .project-name { font-size: 1.15rem; font-weight: 700; margin-bottom: .5rem; }
+    .project-desc { font-size: .875rem; color: var(--muted); line-height: 1.75; flex: 1; }
+    .project-stack { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1.5rem; }
+    .stack-tag {
+      font-family: var(--mono); font-size: .68rem;
+      padding: .22rem .55rem; border-radius: 4px;
+      background: rgba(0,201,167,.08);
+      color: var(--accent);
+      border: 1px solid rgba(0,201,167,.2);
+      transition: all .15s;
+    }
+    .stack-tag:hover { background: rgba(0,201,167,.15); }
+    .live-badge {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-family: var(--mono); font-size: .65rem;
+      color: var(--accent);
+      background: rgba(0,201,167,.1);
+      border: 1px solid rgba(0,201,167,.3);
+      padding: .22rem .6rem;
+      border-radius: 20px;
+      margin-top: 1rem;
+      align-self: flex-start;
+    }
+    .pulse {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .feat-label {
+      font-family: var(--mono); font-size: .62rem;
+      color: var(--accent);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: .75rem;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="./index.html" class="nav-logo">$ abdelrahman.dev</a>
+    <div class="nav-links">
+      <a href="./index.html">Home</a>
+      <a href="./skills.html">Skills</a>
+      <a href="./professional-development.html">Professional Development</a>
+      <a href="./projects.html">Projects</a>
+      <a href="./experience.html">Experience</a>
+      <a href="./contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="container">
+      <div class="page-header">
+        <p class="page-label reveal">// What I've Built</p>
+        <h1 class="page-title reveal">Projects</h1>
+        <div class="page-divider reveal"></div>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Black Viral Athletic Club -->
+        <div class="project-card featured reveal">
+          <div class="feat-label">★ Featured · Live Client</div>
+          <div class="project-top">
+            <div class="project-icon" style="background:rgba(0,201,167,.12)">🏋️</div>
+            <a href="https://blackviral.club" target="_blank" rel="noopener" class="icon-btn" title="Visit Live Site">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+            </a>
+          </div>
+          <div class="project-name">Black Viral Athletic Club</div>
+          <div class="project-desc">
+            Full-stack multi-role sports management platform built for a real UAE client. Features RBAC for 4 user roles — Trainee, Coach, Super Admin, Support Agent — each with dedicated dashboards secured by Supabase Row Level Security. Supports 3 UAE branches with course enrollment, attendance tracking, certificate management, real-time group messaging, and event management. Actively maintained in production.
+          </div>
+          <div class="live-badge"><span class="pulse"></span> Live Production</div>
+          <div class="project-stack">
+            <span class="stack-tag">React 18</span>
+            <span class="stack-tag">TypeScript</span>
+            <span class="stack-tag">Supabase</span>
+            <span class="stack-tag">PostgreSQL</span>
+            <span class="stack-tag">Tailwind CSS</span>
+            <span class="stack-tag">Vite</span>
+            <span class="stack-tag">RLS</span>
+            <span class="stack-tag">RBAC</span>
+          </div>
+        </div>
+
+        <!-- FreeLearning -->
+        <div class="project-card reveal">
+          <div class="project-top">
+            <div class="project-icon" style="background:rgba(59,130,246,.12)">📚</div>
+          </div>
+          <div class="project-name">FreeLearning — EdTech Platform</div>
+          <div class="project-desc">
+            Gamified full-stack learning platform for secondary school students, built as Team Lead Developer for UTM's Application Development course. Integrated an AI chatbot tutor via SambaNova API, a student discussion forum with moderation tools, and story-based learning modules. Secured with Supabase Auth and Row Level Security, developed following Agile/Scrum methodology.
+          </div>
+          <div class="project-stack">
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">TypeScript</span>
+            <span class="stack-tag">Supabase</span>
+            <span class="stack-tag">SambaNova API</span>
+            <span class="stack-tag">PostgreSQL</span>
+            <span class="stack-tag">Tailwind CSS</span>
+            <span class="stack-tag">Agile / Scrum</span>
+          </div>
+        </div>
+
+        <!-- Network Design -->
+        <div class="project-card reveal">
+          <div class="project-top">
+            <div class="project-icon" style="background:rgba(139,92,246,.12)">🏢</div>
+          </div>
+          <div class="project-name">2-Storey Network Infrastructure Design</div>
+          <div class="project-desc">
+            Designed and drafted a complete network infrastructure plan for a two-floor building using AutoCAD as a group project at UTM. Planned and documented full network topology, building layout, device placement, and structured cabling layout in collaboration with teammates.
+          </div>
+          <div class="project-stack">
+            <span class="stack-tag">AutoCAD</span>
+            <span class="stack-tag">Network Design</span>
+            <span class="stack-tag">Topology Planning</span>
+            <span class="stack-tag">Structured Cabling</span>
+            <span class="stack-tag">Team Project</span>
+          </div>
+        </div>
+
+        <!-- Personal Portfolio -->
+        <div class="project-card reveal">
+          <div class="project-top">
+            <div class="project-icon" style="background:rgba(0,201,167,.12)">🌐</div>
+            <a href="https://obaida404.github.io/My_portfolio/" target="_blank" rel="noopener" class="icon-btn" title="Visit Site">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+            </a>
+          </div>
+          <div class="project-name">Personal Portfolio Website</div>
+          <div class="project-desc">
+            Responsive personal portfolio deployed on GitHub Pages, showcasing projects and certifications with a mobile-responsive layout and cross-browser compatibility. Built from scratch using vanilla HTML, CSS, and JavaScript.
+          </div>
+          <div class="project-stack">
+            <span class="stack-tag">HTML</span>
+            <span class="stack-tag">CSS</span>
+            <span class="stack-tag">JavaScript</span>
+            <span class="stack-tag">GitHub Pages</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Abdelrahman Osama &nbsp;·&nbsp; UTM CS Networks &amp; Security &nbsp;·&nbsp; <span id="yr"></span></p>
+  </footer>
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    const obs = new IntersectionObserver(es => {
+      es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: .1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

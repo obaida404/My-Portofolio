@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdelrahman Osama — Professional Development</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    .pd-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .pd-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      transition: border-color .2s, transform .2s, background .2s;
+    }
+    .pd-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      background: var(--surface-hover);
+    }
+    .pd-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .pd-date {
+      font-family: var(--mono); font-size: .68rem;
+      color: var(--accent); letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: .5rem;
+    }
+    .pd-name { font-size: 1.05rem; font-weight: 700; margin-bottom: .4rem; }
+    .pd-org { font-size: .8rem; color: var(--muted); margin-bottom: .8rem; font-family: var(--mono); }
+    .pd-body { font-size: .85rem; color: var(--muted); line-height: 1.75; }
+    .pd-body strong { color: var(--text); }
+
+    .certs-strip {
+      margin-top: 3rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+    }
+    .certs-strip-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+    .certs-strip-title { font-size: 1rem; font-weight: 700; }
+    .certs-strip-link {
+      font-family: var(--mono); font-size: .72rem;
+      color: var(--accent); transition: opacity .2s;
+    }
+    .certs-strip-link:hover { opacity: .75; }
+
+    .cert-row {
+      display: flex; align-items: center; gap: 1rem;
+      padding: .75rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .cert-row:last-child { border-bottom: none; }
+    .cert-row-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem;
+      flex-shrink: 0;
+    }
+    .cert-row-body { flex: 1; }
+    .cert-row-name { font-size: .85rem; font-weight: 600; }
+    .cert-row-detail { font-size: .72rem; color: var(--muted); margin-top: .1rem; font-family: var(--mono); }
+
+    @media (max-width: 640px) {
+      .pd-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="./index.html" class="nav-logo">$ abdelrahman.dev</a>
+    <div class="nav-links">
+      <a href="./index.html">Home</a>
+      <a href="./skills.html">Skills</a>
+      <a href="./projects.html">Projects</a>
+      <a href="./experience.html">Experience</a>
+      <a href="./contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="container">
+      <div class="page-header">
+        <p class="page-label reveal">// Growth &amp; Learning</p>
+        <h1 class="page-title reveal">Professional Development</h1>
+        <div class="page-divider reveal"></div>
+      </div>
+
+      <p class="reveal" style="color:var(--muted); font-size:.9rem; line-height:1.75; max-width:680px;">
+        A record of the workshops, training programmes, and industry events that have shaped my skills and career direction — from data centre operations to network certification and AI literacy.
+      </p>
+
+      <div class="pd-grid">
+
+        <div class="pd-card reveal">
+          <div class="pd-icon" style="background:rgba(0,201,167,.1)">🖥️</div>
+          <div class="pd-date">Nov 2025</div>
+          <div class="pd-name">Skills2Work Data Center Foundation Training</div>
+          <div class="pd-org">UTM × The Asia Foundation × Microsoft</div>
+          <div class="pd-body">
+            A 5-day intensive programme covering <strong>ICT fundamentals</strong>, <strong>data center infrastructure</strong>, and <strong>job readiness</strong>. Combined classroom study with a site visit to <strong>DayOne Data Center</strong> — Malaysia's first colocation data center. Assisted with event organisation and photography throughout the programme.
+          </div>
+        </div>
+
+        <div class="pd-card reveal">
+          <div class="pd-icon" style="background:rgba(59,130,246,.1)">🌐</div>
+          <div class="pd-date">Jul – Apr 2026</div>
+          <div class="pd-name">CCNA Certification Track — Cisco Networking Academy</div>
+          <div class="pd-org">Cisco · 3 Modules Completed</div>
+          <div class="pd-body">
+            Completed the full <strong>CCNA</strong> curriculum across three sequential modules:
+            <ul style="margin-top:.6rem; padding-left:1.2rem;">
+              <li><strong>Introduction to Networks</strong> (Jul 2025) — network fundamentals, OSI model, IP addressing.</li>
+              <li><strong>Switching, Routing &amp; Wireless Essentials</strong> (Dec 2025) — VLANs, STP, static/dynamic routing, Wi-Fi standards.</li>
+              <li><strong>Enterprise Networking, Security &amp; Automation</strong> (Apr 2026) — advanced routing, NAT, ACLs, network automation fundamentals.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pd-card reveal">
+          <div class="pd-icon" style="background:rgba(139,92,246,.1)">🤖</div>
+          <div class="pd-date">Apr 2024</div>
+          <div class="pd-name">AI untuk Rakyat — AI Literacy Programme</div>
+          <div class="pd-org">MyDIGITAL &amp; Intel Corporation</div>
+          <div class="pd-body">
+            Completed both the <strong>AI Appreciate</strong> and <strong>AI Aware</strong> badges as part of Malaysia's national AI literacy initiative. Gained foundational understanding of AI concepts, practical applications, and ethical considerations relevant to technology professionals.
+          </div>
+        </div>
+
+        <div class="pd-card reveal">
+          <div class="pd-icon" style="background:rgba(0,201,167,.1)">🏊</div>
+          <div class="pd-date">Jan 2022</div>
+          <div class="pd-name">International Swimming Instructor Level 1 &amp; Pool Lifeguard</div>
+          <div class="pd-org">International Water Sports Federation (IWSF)</div>
+          <div class="pd-body">
+            Obtained dual international certification — qualified to teach swimming at beginner and intermediate levels, and to serve as a certified pool lifeguard. These roles developed discipline, responsibility, and the ability to manage groups under pressure — skills that translate directly to technical teamwork.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="certs-strip reveal">
+        <div class="certs-strip-header">
+          <div class="certs-strip-title">Full Certification List</div>
+          <a href="https://drive.google.com/drive/folders/1zpAsCIjV5kIF3nCZOyJwsmV7x7Xxo7CD?usp=sharing" target="_blank" rel="noopener" class="certs-strip-link">
+            View on Google Drive ↗
+          </a>
+        </div>
+        <div class="cert-row">
+          <div class="cert-row-icon" style="background:rgba(59,130,246,.1)">🌐</div>
+          <div class="cert-row-body">
+            <div class="cert-row-name">CCNA: Introduction to Networks</div>
+            <div class="cert-row-detail">Cisco · Jul 2025</div>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div class="cert-row-icon" style="background:rgba(59,130,246,.1)">🔀</div>
+          <div class="cert-row-body">
+            <div class="cert-row-name">CCNA: Switching, Routing &amp; Wireless Essentials</div>
+            <div class="cert-row-detail">Cisco · Dec 2025</div>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div class="cert-row-icon" style="background:rgba(59,130,246,.1)">🏢</div>
+          <div class="cert-row-body">
+            <div class="cert-row-name">CCNA: Enterprise Networking, Security &amp; Automation</div>
+            <div class="cert-row-detail">Cisco · Apr 2026</div>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div class="cert-row-icon" style="background:rgba(0,201,167,.1)">🤖</div>
+          <div class="cert-row-body">
+            <div class="cert-row-name">AI Appreciate Badge — AI untuk Rakyat</div>
+            <div class="cert-row-detail">MyDIGITAL &amp; Intel · Apr 2024</div>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div class="cert-row-icon" style="background:rgba(0,201,167,.1)">🤖</div>
+          <div class="cert-row-body">
+            <div class="cert-row-name">AI Aware Badge — AI untuk Rakyat</div>
+            <div class="cert-row-detail">MyDIGITAL &amp; Intel · Apr 2024</div>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div class="cert-row-icon" style="background:rgba(139,92,246,.1)">🖥️</div>
+          <div class="cert-row-body">
+            <div class="cert-row-name">Skills2Work Data Center Foundation</div>
+            <div class="cert-row-detail">UTM, Microsoft, The Asia Foundation · Nov 2025</div>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div class="cert-row-icon" style="background:rgba(0,201,167,.1)">🏊</div>
+          <div class="cert-row-body">
+            <div class="cert-row-name">International Pool Lifeguard</div>
+            <div class="cert-row-detail">IWSF · Jan 2022</div>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div class="cert-row-icon" style="background:rgba(0,201,167,.1)">🏊</div>
+          <div class="cert-row-body">
+            <div class="cert-row-name">International Swimming Instructor Level 1</div>
+            <div class="cert-row-detail">IWSF · Jan 2022</div>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div class="cert-row-icon" style="background:rgba(59,130,246,.1)">📝</div>
+          <div class="cert-row-body">
+            <div class="cert-row-name">IELTS Academic (Band 5.5 / CEFR B2)</div>
+            <div class="cert-row-detail">British Council · Dec 2022</div>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div class="cert-row-icon" style="background:rgba(139,92,246,.1)">💻</div>
+          <div class="cert-row-body">
+            <div class="cert-row-name">Portfolio Website Workshop Certification</div>
+            <div class="cert-row-detail">ISS Egypt, UTM</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>Abdelrahman Osama &nbsp;·&nbsp; UTM CS Networks &amp; Security &nbsp;·&nbsp; <span id="yr"></span></p>
+  </footer>
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    const obs = new IntersectionObserver(es => {
+      es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: .1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdelrahman Osama — Experience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    /* ── TIMELINE ─────────────────────────────────────────── */
+    .timeline { position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px; top: 0; bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+    .tl-item {
+      padding-left: 3.5rem;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    .tl-dot {
+      position: absolute;
+      left: 13px; top: 5px;
+      width: 15px; height: 15px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--accent);
+    }
+    .tl-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      transition: border-color .2s, background .2s;
+    }
+    .tl-card:hover { border-color: var(--accent); background: var(--surface-hover); }
+    .tl-meta {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      flex-wrap: wrap;
+      margin-bottom: .8rem;
+    }
+    .tl-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .tl-info { flex: 1; }
+    .tl-role { font-weight: 700; font-size: 1.05rem; }
+    .tl-company {
+      font-family: var(--mono); font-size: .75rem;
+      color: var(--accent); margin-top: .2rem;
+    }
+    .tl-date { font-size: .75rem; color: var(--muted); margin-top: .15rem; }
+    .tl-bullets { margin-top: .75rem; }
+    .tl-bullets li {
+      font-size: .875rem; color: var(--muted);
+      margin-left: 1.25rem; margin-bottom: .45rem;
+      list-style: disc;
+    }
+
+    /* ── CERTS ────────────────────────────────────────────── */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .cert-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.1rem 1.25rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      transition: border-color .2s, transform .2s, background .2s;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+    .cert-card:hover {
+      border-color: var(--accent2);
+      transform: translateY(-1px);
+      background: var(--surface-hover);
+    }
+    .cert-icon {
+      width: 38px; height: 38px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .cert-body { flex: 1; }
+    .cert-name { font-size: .85rem; font-weight: 600; line-height: 1.35; }
+    .cert-issuer { font-size: .72rem; color: var(--muted); margin-top: .25rem; }
+    .cert-arrow {
+      font-size: .85rem; color: var(--muted);
+      transition: color .2s;
+      flex-shrink: 0;
+    }
+    .cert-card:hover .cert-arrow { color: var(--accent2); }
+
+    /* ── LANGUAGES / EXTRAS ───────────────────────────────── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .side-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.6rem;
+      transition: border-color .2s, background .2s;
+    }
+    .side-card:hover { border-color: var(--accent); background: var(--surface-hover); }
+    .side-title { font-weight: 600; margin-bottom: 1.1rem; font-size: .95rem; }
+    .lang-item {
+      display: flex; align-items: center; gap: .75rem;
+      margin-bottom: .9rem;
+    }
+    .lang-name { font-size: .85rem; min-width: 70px; }
+    .lang-bar-bg { flex: 1; height: 5px; border-radius: 3px; background: var(--border); }
+    .lang-bar-fill {
+      height: 100%; border-radius: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+    }
+    .lang-level { font-family: var(--mono); font-size: .68rem; color: var(--muted); }
+    .extra-item {
+      display: flex; gap: .75rem; align-items: flex-start;
+      margin-bottom: .9rem;
+      font-size: .85rem; color: var(--muted);
+    }
+    .extra-emoji { font-size: 1rem; margin-top: .05rem; flex-shrink: 0; }
+
+    @media (max-width: 640px) {
+      .about-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="./index.html" class="nav-logo">$ abdelrahman.dev</a>
+    <div class="nav-links">
+      <a href="./index.html">Home</a>
+      <a href="./skills.html">Skills</a>
+      <a href="./professional-development.html">Professional Development</a>
+      <a href="./projects.html">Projects</a>
+      <a href="./experience.html" class="active">Experience</a>
+      <a href="./contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="container">
+
+      <!-- WORK EXPERIENCE -->
+      <div class="page-header">
+        <p class="page-label reveal">// Work History</p>
+        <h1 class="page-title reveal">Experience</h1>
+        <div class="page-divider reveal"></div>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <div class="tl-icon" style="background:rgba(0,201,167,.1)">📐</div>
+              <div class="tl-info">
+                <div class="tl-role">AutoCAD Designer</div>
+                <div class="tl-company">Signal-Tech &nbsp;·&nbsp; Johor Bahru, Malaysia</div>
+                <div class="tl-date">Jun 2023 – May 2024</div>
+              </div>
+            </div>
+            <ul class="tl-bullets">
+              <li>Designed and sketched <strong>400+ telecom tower sites</strong> using AutoCAD — covering RRUs, cabinets, and building layouts for major network operators.</li>
+              <li>Completed site documentation and coordinated paperwork for multiple tower upgrade projects across various operators.</li>
+              <li>Rapidly mastered company toolsets and workflows with minimal onboarding time, becoming a productive team member within weeks.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <div class="tl-icon" style="background:rgba(59,130,246,.1)">🖥️</div>
+              <div class="tl-info">
+                <div class="tl-role">Volunteer — Data Center Foundation Training</div>
+                <div class="tl-company">UTM × The Asia Foundation × Microsoft</div>
+                <div class="tl-date">Nov 2025</div>
+              </div>
+            </div>
+            <ul class="tl-bullets">
+              <li>Completed a 5-day intensive programme covering ICT fundamentals, data center infrastructure, and job readiness.</li>
+              <li>Visited <strong>DayOne Data Center</strong> and assisted with event organisation and photography during study sessions.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <div class="tl-icon" style="background:rgba(139,92,246,.1)">🏊</div>
+              <div class="tl-info">
+                <div class="tl-role">International Swimming Instructor &amp; Pool Lifeguard</div>
+                <div class="tl-company">IWSF Certified</div>
+                <div class="tl-date">Jan 2022</div>
+              </div>
+            </div>
+            <ul class="tl-bullets">
+              <li>Elite-level competitive swimmer who represented Egypt in national-level tournaments across two countries.</li>
+              <li>Certified <strong>International Swimming Instructor Level 1</strong> and <strong>International Pool Lifeguard</strong> by the International Water Sports Federation (IWSF).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- CERTIFICATIONS -->
+      <div class="page-header" style="margin-top:3rem;">
+        <p class="page-label reveal">// Certifications &amp; Workshops</p>
+        <h2 class="page-title reveal">Certifications</h2>
+        <div class="page-divider reveal"></div>
+      </div>
+
+      <div class="certs-grid">
+        <a href="https://drive.google.com/drive/folders/1zpAsCIjV5kIF3nCZOyJwsmV7x7Xxo7CD?usp=sharing" target="_blank" rel="noopener" class="cert-card reveal">
+          <div class="cert-icon" style="background:rgba(59,130,246,.1)">🌐</div>
+          <div class="cert-body">
+            <div class="cert-name">CCNA: Introduction to Networks</div>
+            <div class="cert-issuer">Cisco · Jul 2025</div>
+          </div>
+          <div class="cert-arrow">↗</div>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1zpAsCIjV5kIF3nCZOyJwsmV7x7Xxo7CD?usp=sharing" target="_blank" rel="noopener" class="cert-card reveal">
+          <div class="cert-icon" style="background:rgba(59,130,246,.1)">🔀</div>
+          <div class="cert-body">
+            <div class="cert-name">CCNA: Switching, Routing &amp; Wireless Essentials</div>
+            <div class="cert-issuer">Cisco · Dec 2025</div>
+          </div>
+          <div class="cert-arrow">↗</div>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1zpAsCIjV5kIF3nCZOyJwsmV7x7Xxo7CD?usp=sharing" target="_blank" rel="noopener" class="cert-card reveal">
+          <div class="cert-icon" style="background:rgba(59,130,246,.1)">🏢</div>
+          <div class="cert-body">
+            <div class="cert-name">CCNA: Enterprise Networking, Security &amp; Automation</div>
+            <div class="cert-issuer">Cisco · Apr 2026</div>
+          </div>
+          <div class="cert-arrow">↗</div>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1zpAsCIjV5kIF3nCZOyJwsmV7x7Xxo7CD?usp=sharing" target="_blank" rel="noopener" class="cert-card reveal">
+          <div class="cert-icon" style="background:rgba(0,201,167,.1)">🤖</div>
+          <div class="cert-body">
+            <div class="cert-name">AI Appreciate &amp; AI Aware Badge — AI untuk Rakyat</div>
+            <div class="cert-issuer">MyDIGITAL &amp; Intel · Apr 2024</div>
+          </div>
+          <div class="cert-arrow">↗</div>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1zpAsCIjV5kIF3nCZOyJwsmV7x7Xxo7CD?usp=sharing" target="_blank" rel="noopener" class="cert-card reveal">
+          <div class="cert-icon" style="background:rgba(139,92,246,.1)">🖥️</div>
+          <div class="cert-body">
+            <div class="cert-name">Skills2Work Data Center Foundation</div>
+            <div class="cert-issuer">UTM, Microsoft, The Asia Foundation · Nov 2025</div>
+          </div>
+          <div class="cert-arrow">↗</div>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1zpAsCIjV5kIF3nCZOyJwsmV7x7Xxo7CD?usp=sharing" target="_blank" rel="noopener" class="cert-card reveal">
+          <div class="cert-icon" style="background:rgba(0,201,167,.1)">📝</div>
+          <div class="cert-body">
+            <div class="cert-name">IELTS Academic (Band 5.5 / CEFR B2)</div>
+            <div class="cert-issuer">British Council · Dec 2022</div>
+          </div>
+          <div class="cert-arrow">↗</div>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1zpAsCIjV5kIF3nCZOyJwsmV7x7Xxo7CD?usp=sharing" target="_blank" rel="noopener" class="cert-card reveal">
+          <div class="cert-icon" style="background:rgba(59,130,246,.1)">🏊</div>
+          <div class="cert-body">
+            <div class="cert-name">International Pool Lifeguard &amp; Swimming Instructor Lvl 1</div>
+            <div class="cert-issuer">IWSF · Jan 2022</div>
+          </div>
+          <div class="cert-arrow">↗</div>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1zpAsCIjV5kIF3nCZOyJwsmV7x7Xxo7CD?usp=sharing" target="_blank" rel="noopener" class="cert-card reveal">
+          <div class="cert-icon" style="background:rgba(139,92,246,.1)">💻</div>
+          <div class="cert-body">
+            <div class="cert-name">Portfolio Website Workshop Certification</div>
+            <div class="cert-issuer">ISS Egypt, UTM</div>
+          </div>
+          <div class="cert-arrow">↗</div>
+        </a>
+      </div>
+
+      <div style="margin-top:1.75rem; text-align:center;" class="reveal">
+        <a href="https://drive.google.com/drive/folders/1zpAsCIjV5kIF3nCZOyJwsmV7x7Xxo7CD?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          View All Certificates on Google Drive
+        </a>
+      </div>
+
+      <!-- ABOUT / LANGUAGES -->
+      <div class="page-header" style="margin-top:3rem;">
+        <p class="page-label reveal">// A Bit More</p>
+        <h2 class="page-title reveal">About Me</h2>
+        <div class="page-divider reveal"></div>
+      </div>
+
+      <div class="about-grid">
+        <div class="side-card reveal">
+          <div class="side-title">Languages</div>
+          <div class="lang-item">
+            <span class="lang-name">Arabic</span>
+            <div class="lang-bar-bg"><div class="lang-bar-fill" style="width:100%"></div></div>
+            <span class="lang-level">Native</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">English</span>
+            <div class="lang-bar-bg"><div class="lang-bar-fill" style="width:80%"></div></div>
+            <span class="lang-level">Fluent (B2)</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Malay</span>
+            <div class="lang-bar-bg"><div class="lang-bar-fill" style="width:30%"></div></div>
+            <span class="lang-level">Basic</span>
+          </div>
+        </div>
+        <div class="side-card reveal">
+          <div class="side-title">Beyond Code</div>
+          <div class="extra-item">
+            <span class="extra-emoji">🏊</span>
+            <span>Elite competitive swimmer — represented Egypt in national-level tournaments across two countries, competing since childhood.</span>
+          </div>
+          <div class="extra-item">
+            <span class="extra-emoji">🏆</span>
+            <span>Awarded <strong>8 UTM Merit Points</strong> for outstanding co-curricular involvement and active leadership in student societies.</span>
+          </div>
+          <div class="extra-item">
+            <span class="extra-emoji">✈️</span>
+            <span>Willing to relocate internationally — currently based in Johor Bahru, Malaysia (originally from Egypt).</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>Abdelrahman Osama &nbsp;·&nbsp; UTM CS Networks &amp; Security &nbsp;·&nbsp; <span id="yr"></span></p>
+  </footer>
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    const obs = new IntersectionObserver(es => {
+      es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: .1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
