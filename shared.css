@@ -101,7 +101,7 @@ nav.scrolled { box-shadow: 0 8px 28px rgba(25, 48, 43, .08); }
 .projects-grid, .skills-grid, .certs-grid, .pd-grid, .contact-grid {
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px;
 }
-.project-card, .skill-card, .cert-card, .pd-card, .contact-card, .edu-card, .tl-card, .contact-wrap, .availability-box {
+.project-card, .skill-card, .cert-card, .pd-card, .contact-card, .edu-card, .tl-card, .availability-box {
   color: var(--text); background: rgba(255,255,255,.82); border: 1px solid var(--border);
   border-radius: 13px; box-shadow: 0 3px 14px rgba(24,47,42,.035);
 }
