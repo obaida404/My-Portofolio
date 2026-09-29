@@ -45,6 +45,25 @@
     .pd-body { font-size: .85rem; color: var(--muted); line-height: 1.75; }
     .pd-body strong { color: var(--text); }
 
+    .field-story {
+      overflow: hidden; margin: 2.25rem 0 2.5rem; border: 1px solid var(--border);
+      border-radius: 18px; background: var(--surface); box-shadow: var(--shadow);
+    }
+    .field-story-copy { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1.5rem; align-items: end; padding: clamp(1.4rem, 4vw, 2.25rem); }
+    .field-story-kicker { margin-bottom: .6rem; color: var(--accent); font: 500 .68rem var(--mono); letter-spacing: .13em; text-transform: uppercase; }
+    .field-story-title { max-width: 650px; font-size: clamp(1.45rem, 3vw, 2.15rem); line-height: 1.16; letter-spacing: -.045em; }
+    .field-story-meta { margin-top: .65rem; color: var(--muted); font: 500 .72rem var(--mono); }
+    .field-story-text { max-width: 720px; margin-top: 1rem; color: var(--muted); font-size: .9rem; line-height: 1.8; }
+    .field-story-link { flex-shrink: 0; }
+    .field-gallery { display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: 8px; padding: 0 10px 10px; }
+    .field-gallery a { position: relative; display: block; overflow: hidden; min-width: 0; border-radius: 11px; background: var(--bg2); }
+    .field-gallery a:first-child { grid-column: 1 / -1; aspect-ratio: 2.35 / 1; }
+    .field-gallery a:not(:first-child) { aspect-ratio: 1.35 / 1; }
+    .field-gallery img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+    .field-gallery a:hover img { transform: scale(1.035); }
+    .field-gallery a:focus-visible { outline-offset: -4px; }
+    .field-story-caption { padding: 0 1.4rem 1rem; color: var(--muted); font: 500 .65rem var(--mono); }
+
     .certs-strip {
       margin-top: 3rem;
       background: var(--surface);
@@ -82,6 +101,11 @@
 
     @media (max-width: 640px) {
       .pd-grid { grid-template-columns: 1fr; }
+      .field-story-copy { grid-template-columns: 1fr; align-items: start; gap: 1.2rem; }
+      .field-gallery { grid-template-columns: 1fr 1fr; }
+      .field-gallery a:first-child { grid-column: 1 / -1; aspect-ratio: 1.45 / 1; }
+      .field-gallery a:not(:first-child) { aspect-ratio: 1 / 1; }
+      .field-story-caption { padding-inline: 1rem; }
     }
   </style>
 </head>
@@ -110,17 +134,36 @@
         A record of the workshops, training programmes, and industry events that have shaped my skills and career direction — from data centre operations to network certification and AI literacy.
       </p>
 
-      <div class="pd-grid">
-
-        <div class="pd-card reveal">
-          <div class="pd-icon" style="background:rgba(0,201,167,.1)">🖥️</div>
-          <div class="pd-date">Nov 2025</div>
-          <div class="pd-name">Skills2Work Data Center Foundation Training</div>
-          <div class="pd-org">UTM × The Asia Foundation × Microsoft</div>
-          <div class="pd-body">
-            A 5-day intensive programme covering <strong>ICT fundamentals</strong>, <strong>data center infrastructure</strong>, and <strong>job readiness</strong>. Combined classroom study with a site visit to <strong>DayOne Data Center</strong> — Malaysia's first colocation data center. Assisted with event organisation and photography throughout the programme.
+      <article class="field-story reveal" aria-labelledby="field-story-title">
+        <div class="field-story-copy">
+          <div>
+            <div class="field-story-kicker">Field notes · Skills2Work</div>
+            <h2 class="field-story-title" id="field-story-title">Inside a modern data center</h2>
+            <div class="field-story-meta">23–27 November 2025 · Johor Bahru, Malaysia</div>
+            <p class="field-story-text">
+              Five days of ICT fundamentals, infrastructure and job-readiness sessions, capped by a visit to the DayOne data center. Seeing its power, cooling and physical-security systems in person made the work behind always-on services tangible. I also helped organise the visit and documented the programme.
+            </p>
           </div>
+          <a class="btn btn-outline field-story-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7449321316916154368/" target="_blank" rel="noopener noreferrer" aria-label="Read the original Skills2Work post on LinkedIn">Read the LinkedIn post ↗</a>
         </div>
+        <div class="field-gallery" aria-label="Photos from Skills2Work Data Center Foundation Training">
+          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7449321316916154368/" target="_blank" rel="noopener noreferrer" aria-label="Open the original LinkedIn post: Skills2Work cohort at the data center">
+            <img src="./assets/data-center-team.jpg" alt="Skills2Work participants gathered outside the DayOne data center" loading="lazy" />
+          </a>
+          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7449321316916154368/" target="_blank" rel="noopener noreferrer" aria-label="Open the original LinkedIn post: training graduation ceremony">
+            <img src="./assets/data-center-graduation.jpg" alt="Receiving a Skills2Work Data Center Foundation certificate at the graduation ceremony" loading="lazy" />
+          </a>
+          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7449321316916154368/" target="_blank" rel="noopener noreferrer" aria-label="Open the original LinkedIn post: classroom workshop">
+            <img src="./assets/data-center-workshop.jpg" alt="Presenting during a classroom workshop session" loading="lazy" />
+          </a>
+          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7449321316916154368/" target="_blank" rel="noopener noreferrer" aria-label="Open the original LinkedIn post: Skills2Work training cohort">
+            <img src="./assets/data-center-cohort.jpg" alt="The Skills2Work training cohort at the closing session" loading="lazy" />
+          </a>
+        </div>
+        <p class="field-story-caption">Training and site-visit photos · Select a photo to view the original LinkedIn post</p>
+      </article>
+
+      <div class="pd-grid">
 
         <div class="pd-card reveal">
           <div class="pd-icon" style="background:rgba(59,130,246,.1)">🌐</div>
